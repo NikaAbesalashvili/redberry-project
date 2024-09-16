@@ -25,6 +25,7 @@ type Listing = {
 }
 
 type ExtendedListing = Listing & {
+	created_at: string,
 	agent_id: number,
 	agent: Agent,
 }
