@@ -29,10 +29,10 @@ export const createListing = createAsyncThunk('realEstates/createListing', async
     };
 });
 
-export const deleteListing = createAsyncThunk('realEstates/deleteRealEstate', async (listingId, thunkAPI) => {
+export const deleteListing = createAsyncThunk<number, number>('realEstates/deleteRealEstate', async (id, thunkAPI) => {
     try {
-        await axiosInstance.delete(`/real-estates/${listingId}`);
-        return listingId;
+        await axiosInstance.delete(`/real-estates/${id}`);
+        return id;
     } catch (error) {
         return thunkAPI.rejectWithValue(error.response.data);
     };
