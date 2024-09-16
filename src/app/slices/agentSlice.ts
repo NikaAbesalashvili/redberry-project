@@ -24,7 +24,6 @@ const agentSlice = createSlice({
 			})
 			.addCase(fetchAgents.rejected, (state, action) => {
 				state.status = 'failed';
-
 				state.error = action.payload as string || 'Failed to fetch agents';
 			})
 			.addCase(createAgent.fulfilled, (state, action) => {

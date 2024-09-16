@@ -45,7 +45,7 @@ const listingSlice = createSlice({
             })
             .addCase(deleteListing.fulfilled, (state, action) => {
                 state.listings = state.listings.filter((listing) => listing.id !== action.payload);
-            })
+            });
     },
 });
 
