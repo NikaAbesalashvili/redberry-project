@@ -1,8 +1,9 @@
 import { ListingModel } from "../validation/listingSchema";
+import { Status } from "../constants";
 
 export type AgentsState = {
     agents: [],
-	status: 'idle' | 'loading' | 'succeeded' | 'failed',
+	status: Status,
 	error: string | null,
 };
 
@@ -12,10 +13,10 @@ interface Listing extends ListingModel {
 
 export type ListingsState = {
 	listings: Listing[],
-	status: 'idle' | 'loading' | 'succeeded' | 'failed',
+	status: Status,
 	error: string | null,
 	individualListing: Listing | null,
-	individualListingStatus: 'idle' | 'loading' | 'succeeded' | 'failed',
+	individualListingStatus: Status,
 	individualListingError: string | null,
 };
 
@@ -32,10 +33,10 @@ type City = {
 }
 
 export type LocationsState = {
-	regionsStatus: 'idle' | 'loading' | 'succeeded' | 'failed',
+	regionsStatus: Status,
 	regions: Region[],
 	regionsError: string | null,
-	citiesStatus: 'idle' | 'loading' | 'succeeded' | 'failed',
+	citiesStatus: Status,
 	cities: City[],
 	citiesError: string | null,
 };

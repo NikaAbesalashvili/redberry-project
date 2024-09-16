@@ -2,13 +2,14 @@ import { createSlice } from "@reduxjs/toolkit";
 import { fetchListings, fetchListingById, createListing, deleteListing } from '../thunks';
 
 import { ListingsState } from "../../types";
+import { Status } from "../../constants";
 
 const initialState: ListingsState = {
     listings: [],
-    status: 'idle',
+    status: Status.Idle,
     error: null,
     individualListing: null,
-    individualListingStatus: 'idle',
+    individualListingStatus: Status.Idle,
     individualListingError: null,
 };
 
@@ -19,25 +20,25 @@ const listingSlice = createSlice({
     extraReducers: (builder) => {
         builder
             .addCase(fetchListings.pending, (state) => {
-                state.status = 'loading';
+                state.status = Status.Loading;
             })
             .addCase(fetchListings.fulfilled, (state, action) => {
-                state.status = 'succeeded';
+                state.status = Status.Succeeded;
                 state.listings = action.payload;
             })
             .addCase(fetchListings.rejected, (state, action) => {
-                state.status = 'failed';
+                state.status = Status.Failed;
                 state.error = action.payload as string || 'Failed to fetch real estates';
             })
             .addCase(fetchListingById.pending, (state) => {
-                state.individualListingStatus = 'loading';
+                state.individualListingStatus = Status.Loading;
             })
             .addCase(fetchListingById.fulfilled, (state, action) => {
-                state.individualListingStatus = 'succeeded';
+                state.individualListingStatus = Status.Succeeded;
                 state.individualListing = action.payload;
             })
             .addCase(fetchListingById.rejected, (state, action) => {
-                state.individualListingStatus = 'failed';
+                state.individualListingStatus = Status.Failed;
                 state.individualListingError = action.payload as string || 'Failed to fetch real estates';
             })
             .addCase(createListing.fulfilled, (state, action) => {
