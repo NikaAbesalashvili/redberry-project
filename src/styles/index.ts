@@ -3,3 +3,11 @@ export const navbarBoxStyles = {
     margin: 'auto',
     paddingBlock: '2rem',
 }
+
+export const primaryStyles = {
+
+};
+
+export const secondaryStyles = {
+
+};
