@@ -1,21 +1,39 @@
-import { ListingModel } from "../validation/listingSchema";
 import { Status } from "../constants";
+import { AgentModel } from "../validation/agentSchema";
+
+interface Agent extends AgentModel {
+	id: number,
+};
 
 export type AgentsState = {
-    agents: [],
+    agents: Agent[],
 	status: Status,
 	error: string | null,
 };
 
-interface Listing extends ListingModel {
+type Listing = {
 	id: number,
+	address: string,
+	zip_code: string,
+	price: number,
+	area: number,
+	bedrooms: number,
+	is_rental: number,
+	image: string,
+	city_id: number,
+	city: City,
+}
+
+type ExtendedListing = Listing & {
+	agent_id: number,
+	agent: Agent,
 }
 
 export type ListingsState = {
 	listings: Listing[],
 	status: Status,
 	error: string | null,
-	individualListing: Listing | null,
+	individualListing: ExtendedListing | null,
 	individualListingStatus: Status,
 	individualListingError: string | null,
 };

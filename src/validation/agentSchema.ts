@@ -18,4 +18,4 @@ export const agentSchema = z.object({
         .regex(/^5\d{8}$/, { message: 'Phone number must have 5XXXXXXXX format' }),
 });
 
-export type Agent = z.infer<typeof agentSchema>;
+export type AgentModel = z.infer<typeof agentSchema>;

@@ -37,4 +37,4 @@ export const listingSchema = z.object({
         .int({ message: 'Number should be whole number' }),
 });
 
-export type ListingModel = z.infer<typeof listingSchema>;
+export type Listing = z.infer<typeof listingSchema>;
