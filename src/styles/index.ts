@@ -23,3 +23,15 @@ export const filterButtonStyles = {
     border: '1px solid rgba(219, 219, 219, 1)',
     borderRadius: '2.688rem'
 };
+
+export const apartmentLabelStyles = {
+    width: '5.625rem',
+    fontSize: '.75em',
+    fontWeight: '500',
+    lineHeight: '14.4px',
+    textAlign: 'center',
+    backgroundColor: 'rgba(2, 21, 38, 0.5)',
+    color: '#FFF',
+    paddingBlock: '.375em',
+    borderRadius: '.938rem'
+};

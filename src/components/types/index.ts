@@ -11,3 +11,7 @@ export type FilterButtonPropTypes = {
     handleClick: () => void,
     children?: ReactElement,
 };
+
+export type ApartmentLabelPropTypes = {
+    text: string,
+};
