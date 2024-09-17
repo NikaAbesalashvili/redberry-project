@@ -5,7 +5,11 @@ const Layout = () => {
     return (
         <>
             <Navbar />
-            <AddButton text="Add" buttonVariant={true} handleClick={() => console.log('CLICK')} />
+            <AddButton
+                text="ლისტინგის დამატება"
+                buttonVariant={false}
+                handleClick={() => console.log('CLICK')}
+            />
         </>
     );
 };
