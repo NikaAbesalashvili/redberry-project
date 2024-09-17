@@ -7,7 +7,8 @@ export const listingSchema = z.object({
         .min(2, { message: 'Message shoult contain at least 2 symbols' }),
     image: z
         .instanceof(File, { message: 'Image is required and it should be file' })
-        .refine((file) => file.size <= MAX_FILE_SIZE, { message: 'File is too large, it must be less than 1MB' }),
+        .refine((file) => file.size <= MAX_FILE_SIZE, { message: 'File is too large, it must be less than 1MB' })
+        .optional(),
     region_id: z
         .number({ invalid_type_error: 'Value must be number' })
         .int({ message: 'Number should be whole number' }),
