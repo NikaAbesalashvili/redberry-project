@@ -14,3 +14,12 @@ export const secondaryStyles = {
     color: '#F93B1D',
     backgroundColor: 'transparent',
 };
+
+export const filterButtonStyles = {
+    fontSize: '.875rem',
+    fontWeight: '400',
+    lineHeight: '16.8px',
+    color: 'rgba(2, 21, 38, 0.8)',
+    border: '1px solid rgba(219, 219, 219, 1)',
+    borderRadius: '2.688rem'
+};
