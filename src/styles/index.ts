@@ -35,3 +35,54 @@ export const apartmentLabelStyles = {
     paddingBlock: '.375em',
     borderRadius: '.938rem'
 };
+
+export const addListingBox = {
+    width: '49.375rem',
+    margin: 'auto',
+};
+
+export const addListingTitle = {
+    fontSize: '2em',
+    fontWeight: '500',
+    lineHeight: '38.4px',
+    textAlign: 'center'
+};
+
+export const addListingControlsContainer = {
+    marginTop: '2rem',
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '3rem',
+};
+
+export const dealRadios = {
+    flexDirection: 'row',
+    gap: '3rem'
+};
+
+export const textFieldStyles = {
+    width: '100%',
+    fontSize: '.875em',
+    borderRadious: '.375rem',
+};
+
+export const controlTypeLabel = {
+    fontSize: '1em',
+    fontFeatureSettings: '"case" on',
+};
+
+export const controlHintStyles = {
+    marginTop: '.3rem',
+    fontSize: '.875rem',
+    fontWeight: '400',
+    lineHeight: '16.8px'
+}
+
+export const controlLabelStyles = {
+    fontSize: '.875rem',
+    marginBottom: '.2rem',
+};
+
+export const selectStyles = {
+    width: '100%',
+};

@@ -1,7 +1,33 @@
 import { useFormik } from "formik";
 import { listingSchema, Listing } from "../validation/listingSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { TextField, Button, Box, Grid, Typography, InputLabel } from '@mui/material';
+import {
+	TextField,
+	Grid2 as Grid,
+	Button,
+	Box,
+	Typography,
+	InputLabel,
+	Container,
+	FormControl,
+	RadioGroup,
+	Radio,
+	FormControlLabel,
+	Select,
+	MenuItem,
+} from '@mui/material';
+import DoneIcon from '@mui/icons-material/Done';
+import {
+	addListingBox,
+	addListingTitle,
+	addListingControlsContainer,
+	dealRadios,
+	textFieldStyles,
+	controlTypeLabel,
+	controlHintStyles,
+	controlLabelStyles,
+	selectStyles,
+} from "../styles";
 
 const initialValues: Listing = {
     address: '',
@@ -30,89 +56,104 @@ const AddListing = () => {
     });
 
     return (
-        <Box>
-            <Grid container spacing={3}>
-        <Grid item xs={12}>
-          <TextField
-            fullWidth
-            id="address"
-            name="address"
-            label="Address"
-            value={formik.values.address}
-            onChange={formik.handleChange}
-            error={formik.touched.address && Boolean(formik.errors.address)}
-            helperText={formik.touched.address && formik.errors.address}
-          />
-        </Grid>
+        <Box sx={addListingBox} >
+			<Typography
+				component='h1'
+				sx={addListingTitle}
+			>
+				ლისტინგის დამატება
+			</Typography>
 
-        <Grid item xs={12}>
-          <InputLabel htmlFor="image">Image</InputLabel>
-          <input
-            id="image"
-            name="image"
-            type="file"
-            onChange={(event) => {
-              if (event.currentTarget.files) {
-                formik.setFieldValue('image', event.currentTarget.files[0]);
-              }
-            }}
-          />
-          {formik.touched.image && formik.errors.image && (
-            <Typography color="error">{formik.errors.image}</Typography>
-          )}
-        </Grid>
+			<Container sx={addListingControlsContainer} >
 
-        <Grid item xs={12}>
-          <TextField
-            fullWidth
-            id="description"
-            name="description"
-            label="Description"
-            multiline
-            rows={4}
-            value={formik.values.description}
-            onChange={formik.handleChange}
-            error={formik.touched.description && Boolean(formik.errors.description)}
-            helperText={formik.touched.description && formik.errors.description}
-          />
-        </Grid>
+				<Container>
+					<Typography sx={controlTypeLabel} >გარიგების ტიპი</Typography>
+					<FormControl>
+						<RadioGroup
+							aria-labelledby="deal-type-radio-gropu"
+							defaultValue={0}
+							name="deal-type"
+							sx={dealRadios}
+						>
+							<FormControlLabel value={0} control={<Radio />} label='იყიდება' />
+							<FormControlLabel value={1} control={<Radio />} label='ქირავდება' />
+						</RadioGroup>
+					</FormControl>
+				</Container>
 
-        <Grid item xs={12}>
-          <TextField
-            fullWidth
-            id="price"
-            name="price"
-            label="Price"
-            type="number"
-            value={formik.values.price}
-            onChange={formik.handleChange}
-            error={formik.touched.price && Boolean(formik.errors.price)}
-            helperText={formik.touched.price && formik.errors.price}
-          />
-        </Grid>
+				<Container>
+					<Typography sx={controlTypeLabel} >მდებარეობა</Typography>
+					<Grid container marginTop='1rem' spacing={3} >
+						<Grid size={6} >
+							<Typography sx={controlLabelStyles} >მისამართი *</Typography>
+							<TextField sx={textFieldStyles} variant="outlined" />
+							<Typography sx={controlHintStyles} >
+								<DoneIcon style={{ width: '.875rem', height: 'fit-content' }} /> მინიმუმ ორი სიმბოლო
+							</Typography>
+						</Grid>
+						<Grid size={6} >
+							<Typography sx={controlLabelStyles} >საფოსტო ინდექსი *</Typography>
+							<TextField sx={textFieldStyles} variant="outlined" />
+							<Typography sx={controlHintStyles} >
+								<DoneIcon style={{ width: '.875rem', height: 'fit-content' }} /> მხოლოდ რიცხვები
+							</Typography>
+						</Grid>
+						<Grid size={6} >
+							<Typography sx={controlLabelStyles} >რეგიონი</Typography>
+							<Select
+								labelId="region-select"
+								sx={selectStyles}
+							>
+								<MenuItem value={10}>Ten</MenuItem>
+								<MenuItem value={20}>Twenty</MenuItem>
+								<MenuItem value={30}>Thirty</MenuItem>
+							</Select>
+						</Grid>
+						<Grid size={6} >
+							<Typography sx={controlLabelStyles} >ქალაქი</Typography>
+							<Select
+								labelId="region-select"
+								sx={selectStyles}
+							>
+								<MenuItem value={10}>Ten</MenuItem>
+								<MenuItem value={20}>Twenty</MenuItem>
+								<MenuItem value={30}>Thirty</MenuItem>
+							</Select>
+						</Grid>
+					</Grid>
+				</Container>
 
-        <Grid item xs={12}>
-          <TextField
-            fullWidth
-            id="region_id"
-            name="region_id"
-            label="Region ID"
-            type="number"
-            value={formik.values.region_id}
-            onChange={formik.handleChange}
-            error={formik.touched.region_id && Boolean(formik.errors.region_id)}
-            helperText={formik.touched.region_id && formik.errors.region_id}
-          />
-        </Grid>
+				<Container>
+					<Typography sx={controlTypeLabel} >ბინის დეტალები</Typography>
+					<Grid container marginTop='1rem' spacing={3} >
+						<Grid size={6} >
+							<Typography sx={controlLabelStyles} >ფასი</Typography>
+							<TextField sx={textFieldStyles} variant="outlined" />
+							<Typography sx={controlHintStyles} >
+								<DoneIcon style={{ width: '.875rem', height: 'fit-content' }} /> მხოლოდ რიცხვები
+							</Typography>
+						</Grid>
+						<Grid size={6} >
+							<Typography sx={controlLabelStyles} >ფართობი</Typography>
+							<TextField sx={textFieldStyles} variant="outlined" />
+							<Typography sx={controlHintStyles} >
+								<DoneIcon style={{ width: '.875rem', height: 'fit-content' }} /> მხოლოდ რიცხვები
+							</Typography>
+						</Grid>
+						<Grid size={6} >
+							<Typography sx={controlLabelStyles} >საძინებლების რაოდენობა *</Typography>
+							<TextField sx={textFieldStyles} variant="outlined" />
+							<Typography sx={controlHintStyles} >
+								<DoneIcon style={{ width: '.875rem', height: 'fit-content' }} /> მხოლოდ რიცხვები
+							</Typography>
+						</Grid>
+					</Grid>
+				</Container>
 
-        {/* Add more fields like city_id, zip_code, area, etc., in the same way */}
-
-        <Grid item xs={12}>
-          <Button color="primary" variant="contained" fullWidth type="submit">
-            Submit
-          </Button>
-        </Grid>
-      </Grid>
+				<Container>
+					<Typography sx={controlTypeLabel} >აგენტი</Typography>
+				</Container>
+			</Container>
         </Box>
     );
 };
