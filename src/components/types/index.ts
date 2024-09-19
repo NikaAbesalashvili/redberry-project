@@ -2,7 +2,7 @@ import { ReactElement } from "react";
 
 export type AddButtonPropTypes = {
     text: string,
-    buttonVariant: boolean,
+    primary?: boolean | null,
     handleClick: () => void,
 };
 
@@ -14,4 +14,9 @@ export type FilterButtonPropTypes = {
 
 export type ApartmentLabelPropTypes = {
     text: string,
+};
+
+export type FileUploadPropTypes = {
+    filePath?: string,
+    handleFileUpload: () => void,
 };

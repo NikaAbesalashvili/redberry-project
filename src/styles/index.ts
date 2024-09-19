@@ -2,7 +2,17 @@ export const navbarBoxStyles = {
     width: '85%',
     margin: 'auto',
     paddingBlock: '2rem',
-}
+};
+
+export const modalBoxStyles = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: '1000px',
+    bgcolor: 'background.paper',
+    padding: '0 5rem 5rem 5rem',
+};
 
 export const primaryStyles = {
     backgroundColor: '#F93B1D',
@@ -41,15 +51,15 @@ export const addListingBox = {
     margin: 'auto',
 };
 
-export const addListingTitle = {
+export const pageTitle = {
     fontSize: '2em',
     fontWeight: '500',
     lineHeight: '38.4px',
-    textAlign: 'center'
+    textAlign: 'center',
+    margin: '2rem 0 3rem 0',
 };
 
 export const addListingControlsContainer = {
-    marginTop: '2rem',
     display: 'flex',
     flexDirection: 'column',
     gap: '3rem',

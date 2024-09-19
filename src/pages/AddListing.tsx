@@ -1,14 +1,12 @@
 import { useFormik } from "formik";
-import { useAppSelector, useLocations } from "../hooks";
+import { useLocations } from "../hooks";
 import { listingSchema, Listing } from "../validation/listingSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import {
 	TextField,
 	Grid2 as Grid,
-	Button,
 	Box,
 	Typography,
-	InputLabel,
 	Container,
 	FormControl,
 	RadioGroup,
@@ -21,7 +19,7 @@ import {
 import DoneIcon from '@mui/icons-material/Done';
 import {
 	addListingBox,
-	addListingTitle,
+	pageTitle,
 	addListingControlsContainer,
 	dealRadios,
 	radioStyles,
@@ -32,9 +30,6 @@ import {
 	selectStyles,
 	textArea,
 } from "../styles";
-import { useEffect } from "react";
-import { fetchCities, fetchRegions } from "../app/thunks";
-import { City } from "../types";
 
 const initialValues: Listing = {
     address: '',
@@ -81,7 +76,7 @@ const AddListing = () => {
         <Box sx={addListingBox} >
 			<Typography
 				component='h1'
-				sx={addListingTitle}
+				sx={pageTitle}
 			>
 				ლისტინგის დამატება
 			</Typography>
