@@ -15,7 +15,7 @@ export const fetchCities = createAsyncThunk('cities/fetchCities', async (_, thun
 
 export const fetchRegions = createAsyncThunk('regions/fetchRegions', async (_, thunkAPI) => {
     try {
-        const response = await axiosInstance.post('/regions');
+        const response = await axiosInstance.get('/regions');
         return response.data;
     } catch (error) {
         const axiosError = error as AxiosError;

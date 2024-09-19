@@ -4,11 +4,15 @@ import App from './App.tsx';
 import './index.css';
 import { ThemeProvider } from '@emotion/react';
 import { theme } from './themes/index.ts';
+import { Provider } from 'react-redux';
+import { store } from './app/store.ts';
 
 createRoot(document.getElementById('root')!).render(
 	<StrictMode>
-		<ThemeProvider theme={theme} >
-			<App />
-		</ThemeProvider>
+		<Provider store={store} >
+			<ThemeProvider theme={theme} >
+				<App />
+			</ThemeProvider>
+		</Provider>
 	</StrictMode>,
 )

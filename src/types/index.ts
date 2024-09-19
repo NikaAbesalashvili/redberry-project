@@ -39,12 +39,12 @@ export type ListingsState = {
 	individualListingError: string | null,
 };
 
-type Region = {
+export type Region = {
 	id: number,
 	name: string,
 }
 
-type City = {
+export type City = {
 	id: number,
 	name: string,
 	region_id: number,

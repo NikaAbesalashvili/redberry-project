@@ -60,10 +60,19 @@ export const dealRadios = {
     gap: '3rem'
 };
 
+export const radioStyles = {
+    '&.Mui-checked': {
+        color: '#021526',
+    },
+};
+
 export const textFieldStyles = {
     width: '100%',
     fontSize: '.875em',
     borderRadious: '.375rem',
+    '& .MuiInputBase-input': {
+        paddingBlock: '.813rem',
+    },
 };
 
 export const controlTypeLabel = {
@@ -85,4 +94,11 @@ export const controlLabelStyles = {
 
 export const selectStyles = {
     width: '100%',
+    '& .MuiSelect-select': {
+        paddingBlock: '.813rem',
+      },
+};
+
+export const textArea = {
+    width: '100%'
 };
