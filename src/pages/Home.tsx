@@ -100,7 +100,7 @@ const Home = () => {
                             </Typography>
                         </Grid>
                     </Grid>
-                    <FileUpload  >
+                    <FileUpload handleFileUpload={(event) => handleFileChange(event)} >
 
                     </FileUpload>
                 </Box>
